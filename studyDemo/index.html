@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+<body>
+	<!--跟容器  -->
+	<div id="vue-app">
+		<h1>method:{{sayHello('hello')}}</h1>
+		<h1>name:{{name}}</h1>
+
+		<a v-bind:href="gotoUrl">百度一下</a>
+		姓名：<input type="text" v-bind:value="name">
+        <p v-html="websiteTag"></p>
+         <p>点击事件</p> 
+        <h1>age:{{age}}</h1>
+        <!-- <button v-on:click="{{age++}}">涨一岁</button>
+        <button v-on:click="{{age--}}">减一岁</button> -->
+        <button @click.once="add">涨一岁</button>
+        <button v-on:click="subtract">减一岁</button><br>
+        <p>双向数据绑定</p> 
+        姓名：<input   v-model="name"><span>{{name}}</span>
+        年龄：<input   v-model="age"><span>{{age}}</span>
+        <div id="canvas" v-on:mousemove="updateXY">
+             x:{{x}},y:{{y}}-<span v-on:mousemove.stop="">stopmoveing</span>
+        </div>
+        <p>------------v-if  v-else-if v-show-------------------</p>
+        <button v-on:click="error = !error">Toggle error</button>
+        <button v-on:click="success = !success">Toggle success</button>
+        <!-- <p v-if="error">网路连接错误404</p>
+        <p v-else-if="success">网路连接成功200</p> -->
+        <p v-show="error">网路连接错误404</p>
+        <p v-show="success">网路连接成功200</p>
+        <p>------------v-for-------------------</p>
+        <ul>
+	        <li v-for="team in teams">
+	        	 {{team}}
+
+	        </li>	
+        </ul>
+        方式一、
+        <ul>
+	        <li v-for="(player,index) in players">
+	        	 {{index+1}}.{{player.name}}--{{player.age}}
+
+	        </li>	
+        </ul>
+        方式二、
+        <ul>
+	        <li v-for="(player,index) in players">
+	        	 <div v-for="(val,key,index) in player">
+	        	 	{{val}}
+
+	        	 </div>
+	        	 
+
+	        </li>	
+        </ul>
+	</div>
+    
+	<script type="text/javascript" src="app.js">
+	
+
+</script>
+</body>
+</html>
