@@ -34,6 +34,7 @@
       <p>{{blog.content}}</p>
     </div>
    </div> 
+   
 </template>
 
 <script>
